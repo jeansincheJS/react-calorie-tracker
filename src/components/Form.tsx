@@ -36,6 +36,10 @@ export default function Form({ dispatch, state }: FormProps) {
             id: uuidv4()
         })
     }
+    const isValidActivity = () => {
+        const { name, calories } = activity
+        return name.trim() !== '' && calories > 0
+    }
     return (
         <form
             className="space-y-5 bg-white shadow p-10 rounded-lg"
@@ -84,7 +88,9 @@ export default function Form({ dispatch, state }: FormProps) {
             <input
                 type="submit"
                 className="bg-gray-800 hover:bg-gray-900 w-full p-2 font-bold uppercase cursor-pointer disabled:opacity-10 text-white"
-                value={activity.category === 1 ? 'Guardar Comida' : 'Guardar Ejercicio'} />
+                value={activity.category === 1 ? 'Guardar Comida' : 'Guardar Ejercicio'}
+                disabled={!isValidActivity()}
+            />
         </form>
     )
 }
