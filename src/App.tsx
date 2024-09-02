@@ -1,33 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Form from './components/Form';
+import CalorieTracker from './components/CalorieTracker';
+import ActivityList from './components/ActivityList';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <header className='bg-lime-600 py-3'>
+        <div className='max-w-4xl mx-auto flex justify-between items-center'>
+          <h1 className='text-center text-lg font-bold uppercase'>
+            Contador de Calorias
+          </h1>
+          <button className="bg-gray-800 hover:bg-gray-900 text-white p-2 font-bold uppercase cursor-pointer rounded-lg text-sm disabled:opacity-10">
+            Reiniciar App
+          </button>
+        </div>
+      </header>
+
+      <section className="bg-lime-500 py-20 px-5">
+        <div className="max-w-4xl mx-auto">
+          <Form />
+        </div>
+      </section>
+
+      <section className='bg-gray-800 py-10'>
+        <div className='max-w-4xl mx-auto'>
+          <CalorieTracker />
+        </div>
+      </section>
+
+      <section className="p-10 mx-auto max-w-4xl">
+        <ActivityList />
+      </section>
     </>
   )
 }
